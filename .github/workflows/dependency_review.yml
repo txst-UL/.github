@@ -28,6 +28,8 @@ jobs:
           show-patched-versions: true
           warn-on-openssf-scorecard-level: 5
           vulnerability-check: true
+          base-ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || 'main' }}
+          head-ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
 
   create-issue:
     runs-on: ubuntu-latest
