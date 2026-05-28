@@ -38,7 +38,7 @@ jobs:
     if: failure()
     steps:
       - name: 'Create Issue for Vulnerability'
-        uses: actions/github-script@latest
+        uses: actions/github-script@v9
         with:
           script: |
             await github.rest.issues.create({
